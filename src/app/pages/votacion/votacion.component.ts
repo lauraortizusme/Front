@@ -22,7 +22,7 @@ export class VotacionComponent {
   readonly Galletery = 1;
   readonly Fratelli = 2;
   readonly Bluetopia = 3;
-  readonly Atlas = 4;
+  readonly Koalas = 4;
   readonly Bruki = 5;
   
   // Datos del formulario
@@ -188,7 +188,7 @@ export class VotacionComponent {
 
   // Obtener URL del backend para debugging
   private getBackendUrl(): string {
-    return 'http://localhost:3000/api/vote';
+    return 'https://api.crunchy-munch.com/api/vote';
   }
 
   // Headers esperados para debugging

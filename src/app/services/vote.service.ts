@@ -32,7 +32,7 @@ export interface StatisticsResponse {
   providedIn: 'root'
 })
 export class VoteService {
-  private apiUrl = 'http://localhost:3000/api/vote';
+  private apiUrl = 'ttps://api.crunchy-munch.com/api/vote';
 
   constructor(private http: HttpClient) {}
 
