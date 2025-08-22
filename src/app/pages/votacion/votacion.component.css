@@ -477,6 +477,9 @@
     max-width: 380px;
   }
 
+.voting-title {
+  margin-bottom: 0px;
+ }
   .character-left,
   .character-right {
     width: 150px;
