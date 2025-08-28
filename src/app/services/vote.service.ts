@@ -34,7 +34,7 @@ export interface StatisticsResponse {
   providedIn: 'root'
 })
 export class VoteService {
-  private apiUrl = 'https://api.crunchy-munch.com/api/vote/';
+  private apiUrl = 'https://api.crunchy-munch.com/api/vote';
 
   constructor(private http: HttpClient) {}
 
