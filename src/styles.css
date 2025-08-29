@@ -38,6 +38,74 @@ body{
 }
 
 
-main{
-    min-height: 47rem;
+/* Main responsive - reemplaza tu regla actual de main */
+main {
+    min-height: 100vh; /* Ocupa toda la pantalla */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Para pantallas desktop */
+@media (min-width: 1200px) {
+    main {
+        min-height: 47rem; /* Tu valor original para desktop */
+    }
+}
+
+/* Para pantallas laptop */
+@media (max-width: 1199px) and (min-width: 992px) {
+    main {
+        min-height: 45rem;
+    }
+}
+
+/* Para tablets */
+@media (max-width: 991px) and (min-width: 768px) {
+    main {
+        min-height: 100vh;
+  
+    }
+}
+
+/* Para móviles */
+@media (max-width: 767px) {
+    main {
+        min-height: 100vh;
+        min-height: -webkit-fill-available; /* Soporte iOS Safari */
+        
+    }
+}
+
+/* Para móviles muy pequeños */
+@media (max-width: 480px) {
+    main {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+        
+    }
+}
+
+/* Solución adicional para iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    main {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* También asegúrate de que body tenga estas reglas actualizadas */
+body {
+    background-color: #76B6F6;
+    min-height: 100vh;
+    min-height: -webkit-fill-available; /* iOS Safari fix */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    height: -webkit-fill-available; /* iOS Safari fix */
 }
