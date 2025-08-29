@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "brown beige", sans-serif;
+  font-family: "brownBeige", sans-serif;
   background-color: #fbdd7a;
   min-height: 100vh;
   display: flex;
@@ -14,7 +14,7 @@ body {
 
 /* Marquesinas */
 .marquee-container {
-  font-family: "brown beige", sans-serif;
+  font-family: "brownBeige", sans-serif;
   overflow: hidden;
   background-color: #fbdd7a;
   color: black;
