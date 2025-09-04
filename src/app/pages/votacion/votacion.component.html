@@ -183,11 +183,38 @@
         />
       </div>
 
+      <!-- Casilla de tratamiento de datos -->
+      <div class="form-group data-treatment-group">
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="dataConsent"
+            [(ngModel)]="dataConsent"
+            name="dataConsent"
+            class="custom-checkbox"
+            required
+          />
+          <label for="dataConsent" class="checkbox-label">
+            <span class="checkbox-text">
+              Acepto el <a href="#" class="data-link" routerLink="/Tratamiento de datos" >tratamiento de mis datos personales</a> 
+              de acuerdo con la Ley de Protección de Datos Personales.
+            </span>
+          </label>
+        </div>
+      </div>
+
       <div class="form-actions">
         <button type="button" class="cancel-btn" (click)="cancelForm()">
           CANCELAR
         </button>
-        <button type="submit" class="submit-btn">ENVIAR VOTO</button>
+        <button 
+          type="submit" 
+          class="submit-btn"
+          [disabled]="!dataConsent"
+          [class.disabled]="!dataConsent"
+        >
+          ENVIAR VOTO
+        </button>
       </div>
     </form>
   </div>

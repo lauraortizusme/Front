@@ -4,19 +4,22 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { VoteService, VoteData } from '../../services/vote.service';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterLinkWithHref } from '@angular/router'; 
 
 @Component({
   selector: 'app-votacion',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,RouterLinkWithHref],
   templateUrl: './votacion.component.html',
-  styleUrl: './votacion.component.css'
+  styleUrl: './votacion.component.css',
 })
 export class VotacionComponent {
   selectedOption: number | null = null;
   showForm: boolean = false;
   isSubmitting: boolean = false;
-  
+  dataConsent: boolean = false;
+
   // Definir las constantes para las opciones con números
   readonly Ancookies = 0;
   readonly Galletery = 1;
@@ -24,22 +27,19 @@ export class VotacionComponent {
   readonly Bluetopia = 3;
   readonly Koalas = 4;
   readonly Bruki = 5;
-  
+
   // Datos del formulario actualizados
   userData: VoteData = {
     nombreCompleto: '',
-    documento: '',        // Cambiado de 'cedula' a 'documento'
-    edad: 18,            // Agregado con valor por defecto
-    municipio: '',       // Agregado
+    documento: '', // Cambiado de 'cedula' a 'documento'
+    edad: 18, // Agregado con valor por defecto
+    municipio: '', // Agregado
     telefono: '',
     correo: '',
-    selectedOption: 0
+    selectedOption: 0,
   };
 
-  constructor(
-    private router: Router,
-    private voteService: VoteService
-  ) {
+  constructor(private router: Router, private voteService: VoteService) {
     console.log('VoteService inyectado:', this.voteService);
   }
 
@@ -60,6 +60,7 @@ export class VotacionComponent {
     this.userData.selectedOption = this.selectedOption;
     this.showForm = true;
   }
+ 
 
   // Método principal para enviar el formulario
   async submitForm(): Promise<void> {
@@ -73,15 +74,14 @@ export class VotacionComponent {
     }
 
     this.isSubmitting = true;
-    
+
     try {
       // Intentar verificar si ya votó
       console.log('Iniciando verificación de voto...');
       await this.checkIfAlreadyVoted();
-      
+
       // Si llegamos aquí, no ha votado, proceder a crear el voto
       await this.sendVoteToBackend();
-      
     } catch (error) {
       console.error('Error en submitForm:', error);
       this.handleError(error);
@@ -93,14 +93,22 @@ export class VotacionComponent {
   // Validar formulario actualizado
   private validateForm(): boolean {
     console.log('Validando formulario...');
-    
-    if (!this.userData.nombreCompleto.trim() || !this.userData.documento.trim() || 
-        !this.userData.municipio.trim() || !this.userData.telefono.trim() || 
-        !this.userData.correo.trim()) {
+
+    if (
+      !this.userData.nombreCompleto.trim() ||
+      !this.userData.documento.trim() ||
+      !this.userData.municipio.trim() ||
+      !this.userData.telefono.trim() ||
+      !this.userData.correo.trim()
+    ) {
       alert('Por favor, completa todos los campos');
       return false;
     }
-
+    // Validar consentimiento de tratamiento de datos
+    if (!this.dataConsent) {
+      alert('Debes aceptar el tratamiento de datos personales para continuar');
+      return false;
+    }
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(this.userData.correo)) {
       alert('Por favor, ingresa un correo electrónico válido');
@@ -139,26 +147,32 @@ export class VotacionComponent {
   // Verificar si ya ha votado (actualizado)
   private checkIfAlreadyVoted(): Promise<void> {
     return new Promise((resolve, reject) => {
-      console.log('Verificando si ya votó con documento:', this.userData.documento);
-      
+      console.log(
+        'Verificando si ya votó con documento:',
+        this.userData.documento
+      );
+
       this.voteService.checkVote(this.userData.documento.trim()).subscribe({
         next: (response) => {
           console.log('Respuesta de verificación:', response);
-          
+
           if (response.hasVoted) {
             alert('Este documento ya ha sido utilizado para votar');
             reject(new Error('Ya ha votado'));
             return;
           }
-          
+
           console.log('Usuario no ha votado, procediendo...');
           resolve();
         },
         error: (error: HttpErrorResponse) => {
-          console.warn('Error en verificación, continuando sin verificar:', error);
+          console.warn(
+            'Error en verificación, continuando sin verificar:',
+            error
+          );
           // Si la verificación falla, continuamos (quizás el endpoint no existe)
           resolve();
-        }
+        },
       });
     });
   }
@@ -174,7 +188,7 @@ export class VotacionComponent {
         municipio: this.userData.municipio,
         telefono: this.userData.telefono.trim(),
         correo: this.userData.correo.trim().toLowerCase(),
-        selectedOption: this.selectedOption!
+        selectedOption: this.selectedOption!,
       };
 
       console.log('=== ENVIANDO AL BACKEND ===');
@@ -196,7 +210,7 @@ export class VotacionComponent {
         },
         complete: () => {
           console.log('Petición HTTP completada');
-        }
+        },
       });
     });
   }
@@ -210,7 +224,7 @@ export class VotacionComponent {
   private getExpectedHeaders(): object {
     return {
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      Accept: 'application/json',
     };
   }
 
@@ -218,7 +232,7 @@ export class VotacionComponent {
   private handleError(error: any): void {
     console.error('=== ERROR DETALLADO ===');
     console.error('Error completo:', error);
-    
+
     if (error instanceof HttpErrorResponse) {
       console.error('Status:', error.status);
       console.error('Status Text:', error.statusText);
@@ -226,21 +240,23 @@ export class VotacionComponent {
       console.error('URL:', error.url);
       console.error('Headers:', error.headers);
     }
-    
+
     let errorMessage = 'Error al procesar tu voto. Intenta nuevamente.';
-    
+
     if (error instanceof HttpErrorResponse) {
       switch (error.status) {
         case 0:
-          errorMessage = 'No se puede conectar con el servidor. Verifica:\n' +
-                        '- Que el backend esté ejecutándose\n' +
-                        '- La URL del servidor\n' +
-                        '- Los CORS';
+          errorMessage =
+            'No se puede conectar con el servidor. Verifica:\n' +
+            '- Que el backend esté ejecutándose\n' +
+            '- La URL del servidor\n' +
+            '- Los CORS';
           break;
         case 404:
-          errorMessage = 'Endpoint no encontrado (404). Verifica:\n' +
-                        '- La ruta del backend\n' +
-                        '- Que el endpoint exista';
+          errorMessage =
+            'Endpoint no encontrado (404). Verifica:\n' +
+            '- La ruta del backend\n' +
+            '- Que el endpoint exista';
           break;
         case 400:
           errorMessage = error.error?.message || 'Datos inválidos (400)';
@@ -249,10 +265,12 @@ export class VotacionComponent {
           errorMessage = 'Error interno del servidor (500)';
           break;
         default:
-          errorMessage = error.error?.message || `Error ${error.status}: ${error.statusText}`;
+          errorMessage =
+            error.error?.message ||
+            `Error ${error.status}: ${error.statusText}`;
       }
     }
-    
+
     alert(errorMessage);
   }
 
@@ -261,6 +279,7 @@ export class VotacionComponent {
     console.log('Cancelando formulario...');
     this.showForm = false;
     this.selectedOption = null;
+    this.dataConsent = false;
     this.userData = {
       nombreCompleto: '',
       documento: '',
@@ -268,14 +287,14 @@ export class VotacionComponent {
       municipio: '',
       telefono: '',
       correo: '',
-      selectedOption: 0
+      selectedOption: 0,
     };
   }
 
   // Método de debugging para probar la conexión
   testConnection(): void {
     console.log('=== PROBANDO CONEXIÓN ===');
-    
+
     this.voteService.getStatistics().subscribe({
       next: (response) => {
         console.log('✅ Conexión exitosa - Estadísticas:', response);
@@ -284,13 +303,20 @@ export class VotacionComponent {
       error: (error) => {
         console.error('❌ Error de conexión:', error);
         alert('Error de conexión con el backend');
-      }
+      },
     });
   }
 
   // Helper method to get option name for display
   getOptionName(optionNumber: number): string {
-    const options = ['Ancookies', 'Galletery', 'Fratelli', 'Bluetopia', 'Koalas', 'Bruki'];
+    const options = [
+      'Ancookies',
+      'Galletery',
+      'Fratelli',
+      'Bluetopia',
+      'Koalas',
+      'Bruki',
+    ];
     return options[optionNumber] || 'Opción desconocida';
   }
 }

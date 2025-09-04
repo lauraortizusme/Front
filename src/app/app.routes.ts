@@ -23,6 +23,7 @@ import { ResumenCompraComponent } from './pages/resumen-compra/resumen-compra.co
 import { PedidosActivosComponent } from './pages/pedidos-activos/pedidos-activos.component';
 import { VotacionComponent } from './pages/votacion/votacion.component';
 import { ConfirmacionVotoComponent } from './pages/confirmacion-voto/confirmacion-voto.component';
+import { TratamientoComponent } from './pages/tratamiento/tratamiento.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,7 +43,7 @@ export const routes: Routes = [
   { path: 'Resumen de compra', component: ResumenCompraComponent },
   { path: 'Votacion', component: VotacionComponent},
   { path: 'Confirmacion Voto', component: ConfirmacionVotoComponent },
-  
+  { path: 'Tratamiento de datos', component: TratamientoComponent },
   // Rutas protegidas por el guard de autenticación
   {
     path: 'admin/dashboard',

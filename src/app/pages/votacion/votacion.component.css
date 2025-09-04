@@ -118,6 +118,60 @@
   font-style: italic;
 }
 
+/* Estilos para la casilla de tratamiento de datos */
+.data-treatment-group {
+  margin: 10px 0;
+  padding: 15px;
+  background-color: rgba(110, 168, 246, 0.1);
+  border: 2px solid #6ea8f6;
+  border-radius: 8px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: #0100b3;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox-label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: "brownBeige", sans-serif;
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+  text-transform: none;
+}
+
+.checkbox-text {
+  color: #333;
+  font-weight: 500;
+}
+
+.data-link {
+  color: #0100b3;
+  text-decoration: underline;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.data-link:hover {
+  color: #ff343a;
+  text-decoration: none;
+}
+
 .form-actions {
   display: flex;
   gap: 15px;
@@ -156,13 +210,22 @@
   box-shadow: 0 4px 8px rgba(1, 0, 179, 0.3);
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   background-color: #0056d3;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(1, 0, 179, 0.4);
 }
 
-.cancel-btn:active, .submit-btn:active {
+.submit-btn.disabled,
+.submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0.6;
+}
+
+.cancel-btn:active, .submit-btn:active:not(:disabled) {
   transform: translateY(0);
 }
 
@@ -189,6 +252,14 @@
   .cancel-btn, .submit-btn {
     width: 100%;
   }
+
+  .checkbox-container {
+    align-items: flex-start;
+  }
+
+  .checkbox-text {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -209,7 +280,21 @@
     padding: 12px 20px;
     font-size: 14px;
   }
+
+  .data-treatment-group {
+    padding: 12px;
+  }
+
+  .checkbox-text {
+    font-size: 12px;
+  }
+
+  .custom-checkbox {
+    width: 18px;
+    height: 18px;
+  }
 }
+
 .character-left img,
 .character-right img {
   width: 100%;
