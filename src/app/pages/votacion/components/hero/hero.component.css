@@ -1,0 +1,105 @@
+.hero {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.hero-img-bg { position: absolute; inset: 0; }
+.hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(180,100,160,0.6) 0%,
+    rgba(220,100,160,0.8) 40%,
+    rgba(237,150,190,0.92) 75%,
+    #edaac8 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px 30px; 
+  width: 100%;
+  gap: 8px; 
+}
+
+/* BADGE NUEVO */
+.hero-badge {
+  background: #e53935;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.hero-side-logos {
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+  z-index: 3;
+}
+
+.side-logo {
+  width: 70px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.hero-logo { width: 220px; max-width: 65vw; object-fit: contain; margin-bottom: 6px; }
+.hero-divider { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; width: 200px; }
+.hero-divider .line { flex: 1; height: 1px; background: rgba(255,255,255,0.7); }
+.hero-divider .year { font-size: 14px; color: rgba(255,255,255,0.9); letter-spacing: 3px; }
+.hero-tagline {
+  font-size: 15px; font-weight: 800; color: #fff;
+  margin: 0 0 4px; letter-spacing: 1px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+.hero-sub { font-size: 12px; color: rgba(255,255,255,0.9); margin: 0 0 12px; }
+.hero-register-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 999px; padding: 10px 28px;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 1px; color: #fff;
+  text-transform: uppercase; cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 14px;
+}
+.hero-register-btn:hover { background: rgba(255,255,255,0.15); }
+
+.competitors-box {
+  background: #edaac8;
+  border-radius: 999px;
+  padding: 14px 40px;
+  text-align: center;
+  color: #fff;
+  width: 85%;
+  max-width: 400px;
+}
+
+.competitors-box {
+  background: #edaac8;
+  border-radius: 999px;
+  padding: 14px 40px;
+  text-align: center;
+  color: #fff;
+  width: 85%;
+  max-width: 400px;
+  margin-top: 8px;
+}
+
+.competitors-box p { font-size: 11px; margin: 0; opacity: 0.9; }

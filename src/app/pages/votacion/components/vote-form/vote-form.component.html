@@ -1,0 +1,74 @@
+<div class="form-overlay">
+  <div class="form-card">
+
+    <div class="form-header">
+      <h1 class="form-title">COMPLETA<br />TUS DATOS</h1>
+      <p class="form-subtitle">PARA FINALIZAR TU VOTO</p>
+      <div class="selected-badge" *ngIf="selectedOption !== null">
+        Votando por: <strong>{{ selectedName }}</strong>
+      </div>
+    </div>
+
+    <form class="user-form" (ngSubmit)="submitForm()">
+
+      <div class="form-group">
+        <label>Nombre Completo</label>
+        <input type="text" [(ngModel)]="userData.nombreCompleto" name="nombreCompleto"
+          placeholder="Tu nombre completo" required />
+      </div>
+
+      <div class="form-group">
+        <label>Documento de Identidad</label>
+        <input type="text" [(ngModel)]="userData.documento" name="documento"
+          placeholder="Solo números" required />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Edad</label>
+          <input type="number" [(ngModel)]="userData.edad" name="edad"
+            min="5" max="100" required />
+        </div>
+        <div class="form-group">
+          <label>Municipio</label>
+          <select [(ngModel)]="userData.municipio" name="municipio" required>
+            <option value="">Selecciona</option>
+            <option *ngFor="let m of municipios" [value]="m">{{ m }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="tel" [(ngModel)]="userData.telefono" name="telefono"
+          placeholder="7 a 15 dígitos" required />
+      </div>
+
+      <div class="form-group">
+        <label>Correo Electrónico</label>
+        <input type="email" [(ngModel)]="userData.correo" name="correo"
+          placeholder="tu@correo.com" required />
+      </div>
+
+      <div class="consent-box">
+        <input type="checkbox" id="dc" [(ngModel)]="dataConsent" name="dataConsent" />
+        <label for="dc">
+          Acepto el
+          <a routerLink="/Tratamiento de datos" class="consent-link">
+            tratamiento de mis datos personales
+          </a>
+          según la Ley de Protección de Datos.
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-cancel" (click)="cancel()">CANCELAR</button>
+        <button type="submit" class="btn-submit"
+          [disabled]="!dataConsent || isSubmitting">
+          {{ isSubmitting ? 'ENVIANDO...' : 'ENVIAR VOTO' }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

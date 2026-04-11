@@ -7,7 +7,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { inject } from '@angular/core';
-import { IceCreamService } from '../../services/iceCreams.service';
+import { IceCreamService } from '../../services/iceCream/iceCreams.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 

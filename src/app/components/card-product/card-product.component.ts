@@ -2,7 +2,7 @@ import { Component, Inject, Input, inject } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 import { ModalComponent } from '../modal/modal.component';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../services/cart/cart.service';
 
 // ✅ Definir interfaces para los tipos de datos
 interface Topping {

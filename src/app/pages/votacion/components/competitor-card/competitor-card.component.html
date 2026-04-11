@@ -1,0 +1,33 @@
+<div class="competitor-card">
+
+  <div class="card-img-wrap">
+    <img
+      src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600"
+      alt="galleta"
+      class="card-bg-img"
+    />
+    <div class="votes-badge">{{ votes }} votos</div>
+    <button class="info-btn" (click)="toggleInfo($event)">🍪</button>
+  </div>
+
+  <div class="card-pink-zone">
+    <div class="logo-circle">
+      <img [src]="local.imagen" [alt]="local.nombre" />
+    </div>
+
+    <div class="card-desc" [class.open]="showInfo">
+      <p class="desc-label">Descripción:</p>
+      <p class="desc-text">{{ local.descripcion }}</p>
+    </div>
+
+    <div class="card-actions-row">
+      <button class="btn-secondary blue">Cómo llegar</button>
+      <button class="btn-secondary green">Pide ya</button>
+    </div>
+
+    <button class="btn-vote" (click)="vote()">
+      ¡DEJAR MI VOTO!
+    </button>
+  </div>
+
+</div>

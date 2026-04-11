@@ -7,7 +7,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { inject } from '@angular/core';
-import { ToppingsService } from '../../services/toppings.service';
+import { ToppingsService } from '../../services/toppings/toppings.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 

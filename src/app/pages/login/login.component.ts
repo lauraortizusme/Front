@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLinkWithHref, Router } from '@angular/router';
 import { FormControl, ReactiveFormsModule, FormsModule, Validators, FormGroup } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
