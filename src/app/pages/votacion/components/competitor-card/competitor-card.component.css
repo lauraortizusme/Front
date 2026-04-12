@@ -14,113 +14,169 @@
 
 .card-img-wrap {
   position: relative;
-  height: 160px;
-  overflow: hidden;
-  border-radius: 16px 16px 0 0;
-}
-
-.card-img-wrap {
-  position: relative;
-  height: 160px;
+  height: 150px;
   overflow: hidden;
   border-radius: 16px 16px 0 0;
 }
 
 .card-bg-img {
-  width: 100%; height: 160px;
+  width: 100%;
+  height: 150px;
   object-fit: cover;
   border-radius: 16px 16px 0 0;
+  transition: transform 0.3s ease;
 }
 
+.competitor-card:hover .card-bg-img {
+  transform: scale(1.05);
+}
+
+.votes-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.info-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #614e8d;
+  border: none;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.info-btn:hover {
+  transform: scale(1.12);
+  background: #806bb0;
+}
+
+/* Logo sobresale entre imagen y zona rosa */
 .logo-circle {
-  width: 86px; height: 86px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: #F9C8D9;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   overflow: hidden;
-  border: 3px solid #fff;
+  border: none;          
   position: absolute;
-  top: -43px;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
 }
 
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .card-pink-zone {
   background: #efaac7;
-  padding: 50px 12px 12px;
+  padding: 46px 10px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   position: relative;
   border-radius: 0 0 16px 16px;
-  border-top: none;
-  margin-top: 0;
-}
-
-.logo-circle img { width: 100%; height: 100%; object-fit: cover; }
-
-.competitor-card:hover .card-bg-img { transform: scale(1.05); }
-
-.votes-badge {
-  position: absolute; top: 8px; left: 8px;
-  background: rgba(0,0,0,0.55); color: #fff;
-  font-size: 10px; font-weight: 600;
-  padding: 3px 8px; border-radius: 20px;
-  backdrop-filter: blur(4px);
-}
-
-.info-btn {
-  position: absolute; top: 8px; right: 8px;
-  width: 34px; height: 34px; border-radius: 50%;
-  background: #614e8d; border: none; color: #fff;
-  font-size: 14px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: transform 0.2s, background 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.info-btn:hover { transform: scale(1.12); background: #806bb0; }
-
-.local-name {
-  font-size: 13px;
-  font-weight: 800;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0;
-  text-align: center;
 }
 
 .card-desc {
-  max-height: 0; overflow: hidden;
+  max-height: 0;
+  overflow: hidden;
   transition: max-height 0.35s ease;
-  text-align: center; width: 100%;
+  text-align: center;
+  width: 100%;
 }
-.card-desc.open { max-height: 200px; }
-.desc-label { font-size: 11px; font-weight: 700; color: #614e8d; margin: 0 0 4px; }
-.desc-text { font-size: 11px; color: #fff; line-height: 1.5; margin: 0; }
 
-.card-actions-row { display: flex; gap: 6px; width: 100%; }
-.btn-secondary {
-  flex: 1; padding: 7px 4px; border: none;
-  border-radius: 8px; font-size: 10px; font-weight: 700;
-  color: #fff; cursor: pointer; transition: opacity 0.2s;
+.card-desc.open {
+  max-height: 200px;
 }
-.btn-secondary.blue { background: #4e5e98; } 
+
+.desc-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #614e8d;
+  margin: 0 0 4px;
+}
+
+.desc-text {
+  font-size: 11px;
+  color: #fff;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Botones acción — más compactos */
+.card-actions-row {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 5px 4px;    /* más compacto */
+  border: none;
+  border-radius: 8px;
+  font-size: 9px;      /* más pequeño */
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.btn-secondary.blue { background: #4e5e98; }
 .btn-secondary.green { background: #39863b; }
 .btn-secondary:hover { opacity: 0.85; }
 
+/* Botón votar — ancho completo, morado */
 .btn-vote {
-  width: 100%; padding: 12px;
-  background: #614e8d; color: #fff;
-  border: none; border-radius: 10px;
-  font-size: 12px; font-weight: 800;
-  letter-spacing: 0.5px; text-transform: uppercase;
-  cursor: pointer; transition: background 0.2s, transform 0.15s;
+  width: 100%;
+  padding: 10px;
+  background: #614e8d;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
   box-shadow: 0 3px 10px rgba(124,58,237,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
-.btn-vote:hover { background: #806bb0; transform: scale(1.02); }
-.btn-vote:active { transform: scale(0.98); }
 
+.btn-vote:hover {
+  background: #806bb0;
+  transform: scale(1.02);
+}
+
+.btn-vote:active {
+  transform: scale(0.98);
+}

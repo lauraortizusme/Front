@@ -1,5 +1,5 @@
 .stats-bar {
-  background: #FCE4EC; 
+  background: #efaac7; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
 .stat {
   display: flex; align-items: center; gap: 8px;
   font-size: 12px; font-weight: 800;
-  letter-spacing: 1px; color: #1a1a1a;
+  letter-spacing: 1px; color: #fff;
   padding: 0 20px; text-transform: uppercase;
 }
 .divider-v { width: 1px; height: 24px; background: rgba(0,0,0,0.12); }
