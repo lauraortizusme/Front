@@ -1,8 +1,13 @@
-/* ═══════════════════════════════════════
-   FUENTES LOCALES
-═══════════════════════════════════════ */
+/* fuentes locales*/
 @font-face {
   font-family: 'BrownBeige';
+  src: url('./assets/fonts/Brown Beige.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'brownBeige';
   src: url('./assets/fonts/Brown Beige.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
@@ -15,11 +20,15 @@
   font-style: normal;
 }
 
-/* ═══════════════════════════════════════
-   VARIABLES GLOBALES
-═══════════════════════════════════════ */
+@font-face {
+  font-family: 'superReduce';
+  src: url('./assets/fonts/Super Reduce.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* variables globales*/
 :root {
-  /* Colores */
   --rosa-fondo:     #f5d0df;
   --rosa-hero:      #e8a0be;
   --rosa-card:      #efaac7;
@@ -35,24 +44,24 @@
   --negro-suave:    #1a1a1a;
   --gris-texto:     #555555;
 
-  /* Tipografías — Fredoka es la principal para Cookie Fest */
   --fuente-display: 'Fredoka One', cursive;
   --fuente-titulo:  'Fredoka', cursive;
   --fuente-body:    'Fredoka', cursive;
-
-  /* Las locales quedan disponibles para otras partes de la app */
   --fuente-brown:   'BrownBeige', cursive;
   --fuente-reduce:  'SuperReduce', sans-serif;
 }
 
-/* ═══════════════════════════════════════
-   RESET
-═══════════════════════════════════════ */
+/* reset */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+}
+
+html {
+  height: 100%;
+  height: -webkit-fill-available;
 }
 
 html, body {
@@ -62,10 +71,13 @@ html, body {
 body {
   background-color: var(--blanco);
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   font-family: var(--fuente-body);
   -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
 }
 
 main {
@@ -74,11 +86,48 @@ main {
   flex-direction: column;
   padding: 0;
   margin: 0;
+  min-height: 100vh;
 }
 
+@media (min-width: 1200px) {
+  main { min-height: 47rem; }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  main { min-height: 45rem; }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  main { min-height: 100vh; }
+}
+
+@media (max-width: 767px) {
+  main {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  main { min-height: -webkit-fill-available; }
+}
+
+/* Boton e imagen*/
 img {
   display: block;
   max-width: 100%;
+}
+
+/* Excepción logo gigante del header */
+.logo img {
+  max-width: none;
 }
 
 button {
@@ -88,9 +137,7 @@ button {
   outline: none;
 }
 
-/* ═══════════════════════════════════════
-   UTILIDADES
-═══════════════════════════════════════ */
+/* Utilidades */
 .wave-divider {
   line-height: 0;
   overflow: hidden;
@@ -99,4 +146,10 @@ button {
 .wave-divider svg {
   display: block;
   width: 100%;
+}
+
+.sue-ellen-francisco-regular {
+  font-family: "Sue Ellen Francisco", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
