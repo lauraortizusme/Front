@@ -7,19 +7,16 @@ body {
   /* Header */
   .header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #FB9CD6;
-    background-image: url('doodles.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 15px 30px;
-    position: relative;
-    height: 80px; /* Altura fija para el header */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  }
-  
+    justify-content: flex-end;
+    align-items: flex-start;
+    background: transparent;
+    padding: 16px 16px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    width: auto;
+}
   .logo {
     position: relative;
     cursor: pointer;
@@ -429,4 +426,20 @@ body {
   .nav-item img {
     height: 25px;
   }
+}
+
+.user-icon-btn {
+  width: 52px;
+  height: 52px;
+  background: #5b4fcf;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.user-icon-btn:hover {
+  transform: scale(1.05);
 }

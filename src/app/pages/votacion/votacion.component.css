@@ -140,3 +140,19 @@
 @media (max-width: 600px) {
   .vynder-content { flex-direction: column; gap: 12px; }
 }
+
+.sponsor-logo {
+  width: 100%;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 6px;
+  mix-blend-mode: multiply;
+}
+
+.vynder-logo-right {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  mix-blend-mode: multiply;
+}
