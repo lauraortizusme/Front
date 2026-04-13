@@ -193,9 +193,17 @@
 
 @media (max-width: 600px) {
   .card-img-wrap {
-    height: 140px;
+    height: 120px;
   }
   .card-bg-img {
-    height: 140px;
+    height: 120px;
+  }
+  .btn-secondary {
+    font-size: 8px;
+    padding: 4px 2px;
+  }
+  .btn-vote {
+    font-size: 10px;
+    padding: 8px;
   }
 }

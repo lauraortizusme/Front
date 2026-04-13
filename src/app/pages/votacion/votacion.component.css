@@ -66,9 +66,14 @@
 @media (max-width: 600px) {
   .cards-grid { 
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 16px;
+    padding: 0 4px;
   }
   .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .cards-list { 
+  padding: 0 12px 16px; 
+}
 }
 
 .vynder-section {
