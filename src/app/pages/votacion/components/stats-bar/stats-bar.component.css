@@ -26,5 +26,10 @@
   50% { opacity: 0.3; }
 }
 @media (max-width: 600px) {
-  .stat { padding: 0 10px; font-size: 10px; }
+  .stat { 
+    padding: 0 6px; 
+    font-size: 9px;
+    gap: 4px;
+    letter-spacing: 0.5px;
+  }
 }

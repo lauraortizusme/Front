@@ -70,7 +70,10 @@
 }
 
 @media (max-width: 600px) {
-  .cards-grid { grid-template-columns: 1fr; }
+  .cards-grid { 
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
   .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -138,7 +141,22 @@
 }
 
 @media (max-width: 600px) {
-  .vynder-content { flex-direction: column; gap: 12px; }
+  .vynder-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+  }
+  .vynder-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+  .vynder-logo-right {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
 }
 
 .sponsor-logo {
