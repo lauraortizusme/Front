@@ -60,6 +60,7 @@ export class VotacionComponent implements OnInit, OnDestroy {
 getLocalImage(nombre: string): string {
   const images: { [key: string]: string } = {
     'Crunchy Munch': 'assets/img/crunchy.png',
+    'Crunchy Munch 2': 'assets/img/crunchy.png',
     'Dolcatto': 'assets/img/DOLCATO.jpeg',
     'Fratelli Repostería': 'assets/img/FRATELI.jpeg',
     'Koalas Bakery': 'assets/img/KOALAS.png',
@@ -71,6 +72,7 @@ getLocalImage(nombre: string): string {
 getLocalFondo(nombre: string): string {
   const fondos: { [key: string]: string } = {
     'Crunchy Munch': 'assets/img/CrunchyFondo.jpeg',
+    'Crunchy Munch 2': 'assets/img/Crunchy2Fondo.jpeg',
     'Dolcatto': 'assets/img/DOLCATOFondo.jpeg',
     'Fratelli Repostería': 'assets/img/FratelliFondo.jpeg',
     'Koalas Bakery': 'assets/img/KoalasFondo.jpeg',
