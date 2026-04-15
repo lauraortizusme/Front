@@ -1,14 +1,14 @@
 <body>
   <ng-container *ngIf="showMainLayout; else introOnly">
-    <app-header></app-header>
+    <app-header *ngIf="showHeader"></app-header>
     <main>
       <app-cart></app-cart>
       <router-outlet></router-outlet>
     </main>
-    <app-footer></app-footer>
+    <app-footer *ngIf="showFooter"></app-footer>
   </ng-container>
 
   <ng-template #introOnly>
-    <router-outlet></router-outlet> <!-- Aquí carga el componente Intro -->
+    <router-outlet></router-outlet>
   </ng-template>
 </body>

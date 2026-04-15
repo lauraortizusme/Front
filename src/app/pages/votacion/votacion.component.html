@@ -1,221 +1,88 @@
-<!-- Sección de votación - se oculta cuando showForm es true -->
-<div class="container" *ngIf="!showForm">
-  <!-- Personaje izquierdo (galleta) -->
-  <div class="character-left">
-    <img
-      src="../../../assets/img/Mantequilla color.png"
-      alt="Personaje Galleta"
-    />
+<ng-container *ngIf="!showForm">
+
+  <app-hero (registerClick)="onVote(0)"></app-hero>
+
+  <app-stats-bar
+    [totalVotes]="statistics?.totalVotes ?? 0"
+    [totalCompetitors]="locales.length">
+  </app-stats-bar>
+
+  <div class="cards-list">
+    <div class="cards-grid">
+      <app-competitor-card
+        *ngFor="let local of locales; let i = index"
+        [local]="local"
+        [index]="i"
+        [votes]="getVotesForOption(i)"
+        (onVote)="onVote($event)">
+      </app-competitor-card>
+    </div>
   </div>
 
-  <!-- Panel de votación -->
-  <div class="voting-panel">
-    <div class="voting-header">
-      <h1 class="voting-title">VOTA AQUI</h1>
-      <div class="voting-subtitle">POR LA GALLETA GANADORA</div>
-    </div>
-
-    <div class="voting-grid">
-      <div
-        class="vote-option"
-        (click)="selectOption(Ancookies)"
-        [class.selected]="selectedOption === Ancookies"
-      >
-        <img
-          src="../../../assets/img/Ancookies logo [Recuperado]-01.png"
-          alt="Ancookies"
-        />
-      </div>
-      <div
-        class="vote-option"
-        (click)="selectOption(Galletery)"
-        [class.selected]="selectedOption === Galletery"
-      >
-        <img src="../../../assets/img/Logotipo.PNG" alt="Galletery" />
-      </div>
-      <div
-        class="vote-option"
-        (click)="selectOption(Fratelli)"
-        [class.selected]="selectedOption === Fratelli"
-      >
-        <img src="../../../assets/img/Fratelli (15).png" alt="Fratelli" />
-      </div>
-      <div
-        class="vote-option"
-        (click)="selectOption(Bluetopia)"
-        [class.selected]="selectedOption === Bluetopia"
-      >
-        <img src="../../../assets/img/imagee.png" alt="Bluetopia" />
-      </div>
-      <div
-        class="vote-option"
-        (click)="selectOption(Koalas)"
-        [class.selected]="selectedOption === Koalas"
-      >
-        <img src="../../../assets/img/images.png" alt="Koalas" />
-      </div>
-      <div
-        class="vote-option"
-        (click)="selectOption(Bruki)"
-        [class.selected]="selectedOption === Bruki"
-      >
-        <img src="../../../assets/img/image.png" alt="Bruki" />
-      </div>
-    </div>
-
-    <button
-      class="confirm-vote"
-      (click)="confirmVote()"
-      [disabled]="selectedOption === null"
-    >
-      CONFIRMAR VOTO
-    </button>
+  <div class="bottom-cta">
+    <p>AYUDA A TU GALLETERÍA FAVORITA A GANAR. DEJA TU VOTO</p>
   </div>
 
-  <!-- Personaje derecho (oso) -->
-  <div class="character-right">
-    <img src="../../../assets/img/CM cafetero.png" alt="Personaje Oso" />
+  <div class="vynder-section">
+  <div class="vynder-content">
+    <img src="../../../assets/img/VYlogo.png" alt="Vynder App" class="vynder-logo" />
+    <div class="vynder-text">
+      <p class="vynder-title">PRÓXIMAMENTE DESCARGA VYNDER</p>
+      <p class="vynder-sub">UNA APP DONDE ENCONTRARÁS TODO SIN NECESIDAD DE ESCRIBIR</p>
+      <p class="vynder-find">ENCUÉNTRALO EN</p>
+      <div class="store-badges">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" class="store-badge" />
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" class="store-badge" />
+      </div>
+    </div>
+    <img src="../../../assets/img/VynderLogo.png" alt="Vynder" class="vynder-logo-right" />
   </div>
 </div>
 
-<!-- Formulario - se muestra cuando showForm es true -->
-<div *ngIf="showForm" class="form-container">
-  <div class="user-form-panel">
-    <div class="form-header">
-      <h1 class="form-title">COMPLETA TUS DATOS</h1>
-      <div class="form-subtitle">PARA FINALIZAR TU VOTO</div>
+<div class="sponsors-wrapper">
+  <svg class="sponsors-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,0 C360,80 1080,80 1440,0 L1440,0 L0,0 Z" fill="#4ECDC4"/>
+  <path d="M0,80 C360,0 1080,0 1440,80 L1440,80 L0,80 Z" fill="#EFAAC7"/>
+</svg>
+
+  <div class="sponsors-section">
+    <h3 class="sponsors-title">PATROCINA</h3>
+      <div class="sponsors-grid">
+      <div class="sponsor-item">
+        <img src="assets/img/logo_krima.png" alt="Krima" class="sponsor-logo" />
+      </div>
+      <div class="sponsor-item">
+        <img src="assets/img/logo_printpack.png" alt="PrintPack" class="sponsor-logo" />
+      </div>
+      <div class="sponsor-item">
+        <img src="assets/img/CrunchyLogo.png" alt="Crunchy Munch" class="sponsor-logo" />
+      </div>
+      <div class="sponsor-item">
+        <img src="assets/img/logo_alemautos.png" alt="Alemautos" class="sponsor-logo" />
+      </div>
+      <div class="sponsor-item">
+        <img src="assets/img/logo_postobon.png" alt="Postobón" class="sponsor-logo" />
+      </div>
+      <div class="sponsor-item">
+        <img src="assets/img/logo_1826.png" alt="1826 Coffee" class="sponsor-logo" />
+      </div>
     </div>
-
-    <form class="user-form" (ngSubmit)="submitForm()">
-      <div class="form-group">
-        <label for="nombreCompleto">Nombre Completo:</label>
-        <input
-          type="text"
-          id="nombreCompleto"
-          [(ngModel)]="userData.nombreCompleto"
-          name="nombreCompleto"
-          placeholder="Ingresa tu nombre completo"
-          required
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="documento">Documento de Identidad:</label>
-        <input
-          type="text"
-          id="documento"
-          [(ngModel)]="userData.documento"
-          name="documento"
-          placeholder="Ingresa tu número de documento"
-          required
-        />
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="edad">Edad:</label>
-          <input
-            type="number"
-            id="edad"
-            [(ngModel)]="userData.edad"
-            name="edad"
-            placeholder="Edad"
-            min="10"
-            max="100"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="municipio">Municipio:</label>
-          <select
-            id="municipio"
-            [(ngModel)]="userData.municipio"
-            name="municipio"
-            required
-          >
-            <option value="">Selecciona tu municipio</option>
-            <option value="Abejorral">Abejorral</option>
-            <option value="Alejandría">Alejandría</option>
-            <option value="Bello">Bello</option>
-            <option value="Carmen de Viboral">Carmen de Viboral</option>
-            <option value="Cocorná">Cocorná</option>
-            <option value="Concepción">Concepción</option>
-            <option value="El Peñol">El Peñol</option>
-            <option value="El Retiro">El Retiro</option>
-            <option value="El Santuario">El Santuario</option>
-            <option value="Envigado">Envigado</option>
-            <option value="Guarne">Guarne</option>
-            <option value="Guatapé">Guatapé</option>
-            <option value="Itagui">Itagui</option>
-            <option value="La Ceja">La Ceja</option>
-            <option value="La Unión">La Unión</option>
-            <option value="Medellin">Medellin</option>
-            <option value="Rionegro">Rionegro</option>
-            <option value="Sabaneta">Sabaneta</option>
-            <option value="Sonsón">Sonsón</option>
-            <option value="Otro">Otro municipio</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="telefono">Numero Telefonico:</label>
-        <input
-          type="tel"
-          id="telefono"
-          [(ngModel)]="userData.telefono"
-          name="telefono"
-          placeholder="Ingresa tu número de teléfono"
-          required
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="correo">Correo Electronico:</label>
-        <input
-          type="email"
-          id="correo"
-          [(ngModel)]="userData.correo"
-          name="correo"
-          placeholder="Ingresa tu correo electrónico"
-          required
-        />
-      </div>
-
-      <!-- Casilla de tratamiento de datos -->
-      <div class="form-group data-treatment-group">
-        <div class="checkbox-container">
-          <input
-            type="checkbox"
-            id="dataConsent"
-            [(ngModel)]="dataConsent"
-            name="dataConsent"
-            class="custom-checkbox"
-            required
-          />
-          <label for="dataConsent" class="checkbox-label">
-            <span class="checkbox-text">
-              Acepto el <a href="#" class="data-link" routerLink="/Tratamiento de datos" >tratamiento de mis datos personales</a> 
-              de acuerdo con la Ley de Protección de Datos Personales.
-            </span>
-          </label>
-        </div>
-      </div>
-
-      <div class="form-actions">
-        <button type="button" class="cancel-btn" (click)="cancelForm()">
-          CANCELAR
-        </button>
-        <button 
-          type="submit" 
-          class="submit-btn"
-          [disabled]="!dataConsent"
-          [class.disabled]="!dataConsent"
-        >
-          ENVIAR VOTO
-        </button>
-      </div>
-    </form>
+    <p class="sponsors-note">
+      QUÉDATE PENDIENTE DE NUESTRAS REDES SOCIALES.<br />
+      PRÓXIMAMENTE ANUNCIAREMOS NUESTRO NUEVO GANADOR 2026
+    </p>
   </div>
 </div>
+
+<div class="page-footer">
+  <p>TÉRMINOS LEGALES VYNDER</p>
+</div>
+
+</ng-container>
+
+<app-vote-form
+  *ngIf="showForm"
+  [selectedOption]="selectedOption"
+  [selectedName]="getSelectedName()"
+  (cancelForm)="onCancelForm()">
+</app-vote-form>

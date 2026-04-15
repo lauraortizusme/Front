@@ -3,7 +3,7 @@ import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { AuthServices } from '../services/auth-admin.service';
+import { AuthServices } from '../services/auth/auth-admin.service';
 
 const isTokenExpired = (token: string): boolean => {
   try {

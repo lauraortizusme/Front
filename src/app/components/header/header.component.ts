@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
-import { CartService } from '../../services/cart.service';
-import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart/cart.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 

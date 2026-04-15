@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { RouterLinkWithHref, Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/user/user.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { PqrsService } from '../../services/pqrs.service'; // Importa el servicio correctamente
+import { PqrsService } from '../../services/pqrs/pqrs.service'; // Importa el servicio correctamente
 import Swal from 'sweetalert2';
 
 @Component({

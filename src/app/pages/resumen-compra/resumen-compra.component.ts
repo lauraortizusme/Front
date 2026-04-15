@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkWithHref } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CartService, CartItem } from '../../services/cart.service';
-import { PedidoService } from '../../services/pedidos.service';
-import { AuthService, User } from '../../services/auth.service';
+import { CartService, CartItem } from '../../services/cart/cart.service';
+import { PedidoService } from '../../services/pedidos/pedidos.service';
+import { AuthService, User } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-checkout',

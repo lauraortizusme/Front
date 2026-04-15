@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { VoteService } from './vote.service';
+import { PqrsService } from './pqrs/pqrs.service';
 
-describe('VoteService', () => {
-  let service: VoteService;
+describe('PqrsService', () => {
+  let service: PqrsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(VoteService);
+    service = TestBed.inject(PqrsService);
   });
 
   it('should be created', () => {

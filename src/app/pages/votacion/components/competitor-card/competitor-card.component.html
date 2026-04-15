@@ -1,0 +1,40 @@
+<div class="competitor-card">
+
+  <div class="card-img-wrap">
+    <img
+      [src]="local.fondo"
+      [alt]="local.nombre"
+      class="card-bg-img"
+    />
+    <div class="votes-badge">{{ votes }} votos</div>
+    <button class="info-btn" (click)="toggleInfo($event)">🍪</button>
+  </div>
+
+  <div class="card-pink-zone">
+    <div class="logo-circle">
+      <img [src]="local.imagen" [alt]="local.nombre" />
+    </div>
+
+    <div class="card-desc" [class.open]="showInfo">
+      <p class="desc-label">Descripción:</p>
+      <p class="desc-text">{{ local.descripcion }}</p>
+    </div>
+
+      <div class="card-actions-row">
+        <button class="btn-secondary blue" (click)="goToLocation()">
+          <img src="../../../../../assets/img/paper-plane.png" class="btn-icon" /> Cómo llegar
+        </button>
+        <button class="btn-secondary green" (click)="goToWhatsapp()">
+          <img src="../../../../../assets/img/motorbike.png" class="btn-icon" /> Pide ya
+        </button>
+      </div>
+
+    <button class="btn-vote" (click)="vote()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14">
+        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+      </svg>
+      ¡DEJAR MI VOTO!
+    </button>
+  </div>
+
+</div>

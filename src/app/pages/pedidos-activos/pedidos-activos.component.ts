@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { PedidoService } from '../../services/pedidos.service';
-import { AuthService } from '../../services/auth.service';
-import { ToppingsService } from '../../services/toppings.service';
-import { IceCreamService } from '../../services/iceCreams.service';
+import { PedidoService } from '../../services/pedidos/pedidos.service';
+import { AuthService } from '../../services/auth/auth.service';
+import { ToppingsService } from '../../services/toppings/toppings.service';
+import { IceCreamService } from '../../services/iceCream/iceCreams.service';
 
 @Component({
   selector: 'app-admin-pedidos',

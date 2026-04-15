@@ -1,7 +1,7 @@
 // modal.component.ts - VERSIÓN CORREGIDA
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../services/cart/cart.service';
 import { inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

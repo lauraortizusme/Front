@@ -1,0 +1,35 @@
+.stats-bar {
+  background: #efaac7; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 20px;
+  margin-bottom: 16px; 
+  width: 100%;
+}
+
+.stat {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 800;
+  letter-spacing: 1px; color: #fff;
+  padding: 0 20px; text-transform: uppercase;
+}
+.divider-v { width: 1px; height: 24px; background: rgba(0,0,0,0.12); }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.dot.green {
+  background: #4CAF50;
+  box-shadow: 0 0 8px #4CAF50;
+  animation: blink 1.4s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@media (max-width: 600px) {
+  .stat { 
+    padding: 0 6px; 
+    font-size: 9px;
+    gap: 4px;
+    letter-spacing: 0.5px;
+  }
+}

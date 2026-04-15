@@ -3,38 +3,23 @@
     <img src="assets/img/logo.png" alt="Crunchy Munch Logo" />
   </div>
   <div class="user-info">
-    <!-- Mostrar mensaje de bienvenida solo si el usuario está logueado -->
     <span class="welcome" *ngIf="user">BIENVENIDO, {{ user.name }}</span>
-    <img
-      routerLink="/Login"
-      class="icon"
-      src="assets/img/login.png"
-      alt="Perfil"
-    />
+    <img routerLink="/Login" class="icon" src="assets/img/login.png" alt="Perfil" />
     <div class="cart">
-      <img
-        class="cart"
-        (click)="handleCartClick()"
-        src="assets/img/cart.png"
-        alt="Carrito"
-      />
-      <button (click)="handleCartClick()" class="cart-badge">
-        {{ cartItemCount }}
-      </button>
+      <img class="cart" (click)="handleCartClick()" src="assets/img/cart.png" alt="Carrito" />
+      <button (click)="handleCartClick()" class="cart-badge">{{ cartItemCount }}</button>
     </div>
   </div>
 </header>
 
 <nav class="nav">
-    <a routerLink="/Nuestros Productos" class="nav-item">
-        <p>NUESTROS PRODUCTOS</p>
-    </a>
-    
-    <a routerLink="/Votacion" class="nav-item" style="margin: 0;">
-        <img src="assets/img/LOGO O3.png" alt="Cookie Fest Logo" style="height: 50px; margin: 0;">
-    </a>
-    
-    <a routerLink="/Tus Pedidos" class="nav-item">
-        <p>TUS PEDIDOS</p>
-    </a>
+  <a routerLink="/Nuestros Productos" class="nav-item">
+    <p>NUESTROS PRODUCTOS</p>
+  </a>
+  <a routerLink="/Votacion" class="nav-item" style="margin: 0;">
+    <img src="assets/img/LOGO O3.png" alt="Cookie Fest Logo" style="height: 50px; margin: 0;">
+  </a>
+  <a routerLink="/Tus Pedidos" class="nav-item">
+    <p>TUS PEDIDOS</p>
+  </a>
 </nav>

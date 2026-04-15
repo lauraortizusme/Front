@@ -1,0 +1,302 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  background: #d991b5;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (max-width: 600px) {
+  .hero-photo {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    150deg,
+    rgba(180, 80, 140, 0.40) 0%,
+    rgba(200, 110, 160, 0.60) 25%,
+    rgba(120, 160, 210, 0.40) 60%,
+    rgba(100, 180, 210, 0.50) 100%
+  );
+}
+
+/* ── Contenido central ── */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 20px 24px 0;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.hero-badge {
+  background: #cc2b2b;
+  color: #fff;
+  font-family: 'Fredoka', cursive;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  padding: 5px 18px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.hero-logo-main {
+  width: 230px;
+  max-width: 68vw;
+  object-fit: contain;
+}
+
+.hero-year-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 190px;
+}
+
+.year-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.7);
+}
+
+.hero-year {
+  font-family: 'Fredoka', cursive;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: 5px;
+}
+
+.hero-tagline {
+  font-family: 'Fredoka One', cursive;
+  font-size: 17px;
+  color: #fff;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.18);
+  margin: 0;
+}
+
+.hero-sub {
+  font-family: 'Fredoka', cursive;
+  font-weight: 400;
+  font-size: 10px;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* ── Contenedor de toda la zona inferior ── */
+.hero-wave-back-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-top: 16px;
+  height: 340px;
+  flex-shrink: 0;
+}
+
+/* ── Wave trasero: turquesa, ocupa toda la altura del wrap, lado izq ── */
+.wave-back-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 72%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Wave delantero: degradado, ocupa la base ── */
+.wave-front-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Logos (anclados al wave trasero, mitad izq) ── */
+.hero-bottom-logos {
+  position: absolute;
+  top: 25%;
+  left: 90px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-circle-sm {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-circle-sm img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.vynder-bottom-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.bottom-x {
+  font-size: 28px;
+  color: rgba(255,255,255,0.9);
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+/* ── Arco (esquina derecha) ── */
+.hero-register-arc {
+  position: absolute;
+  top: -40px;
+  right: -8px;
+  z-index: 5;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
+}
+
+/* ── Pill COMPETIDORES ── */
+.hero-competitors-pill {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  background: #efaac7;
+  border: 2px solid rgba(255,255,255,0.75);
+  border-radius: 999px;
+  padding: 18px 32px;
+  text-align: center;
+  width: 75%;
+  max-width: 460px;
+  white-space: nowrap;
+  box-shadow: 0 4px 18px rgba(200,100,150,0.2);
+}
+
+.pill-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 26px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.pill-sub {
+  font-family: 'Fredoka', cursive;
+  font-weight: 400;
+  font-size: 12px;
+  color: rgba(255,255,255,0.92);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .hero-competitors-pill {
+    width: 85%;
+    padding: 14px 20px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .pill-title {
+    font-size: 20px;
+  }
+
+  .pill-sub {
+    font-size: 10px;
+  }
+}
+
+.hero-user-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 52px;
+  height: 52px;
+  background: #5b4fcf;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: transform 0.2s ease;
+}
+
+.hero-user-btn:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .hero-bottom-logos {
+    top: 30%;
+    left: 5px;
+  }
+
+  .logo-circle-sm {
+    width: 37px;
+    height: 37px;
+  }
+
+  .vynder-bottom-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hero-register-arc {
+    top: -20px;
+    right: -12px;
+
+  }
+  .hero-register-arc svg {
+    width: 130px;
+    height: 200px;
+  }
+}

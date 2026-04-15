@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../services/cart/cart.service';
 import { Subscription } from 'rxjs';
 import { RouterLinkWithHref, Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 // Definir interfaces para tipar correctamente los datos
 interface Product {

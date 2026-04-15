@@ -4,8 +4,8 @@ import { RouterLinkWithHref } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CardProductComponent } from '../../components/card-product/card-product.component';
 
-import { ProductsService } from '../../services/products.service';
-import { CategoryService } from '../../services/category.service';
+import { ProductsService } from '../../services/products/products.service';
+import { CategoryService } from '../../services/category/category.service';
 import { Products } from '../../models/Product.model';
 
 @Component({
