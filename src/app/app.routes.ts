@@ -27,7 +27,7 @@ import { TratamientoComponent } from './pages/tratamiento/tratamiento.component'
 import { InitComponent } from './pages/init/init.component';
 
 export const routes: Routes = [
-   { path: '', component: InitComponent },
+  { path: 'Votacion', component: InitComponent },
   { path: 'Main', component: HomeComponent },
   { path: 'Quien Somos', component: QuienSomosComponent },
   { path: 'Cookie', component: CookieProductoComponent },
@@ -43,7 +43,7 @@ export const routes: Routes = [
   { path: 'dadada', component: AdminComponent },
   { path: 'Admin Login', component: AdminLoginComponent },
   { path: 'Resumen de compra', component: ResumenCompraComponent },
-  { path: 'Votacion', component: VotacionComponent},
+  { path: '', component: VotacionComponent},
   { path: 'Confirmacion Voto', component: ConfirmacionVotoComponent },
   { path: 'Tratamiento de datos', component: TratamientoComponent },
   // Rutas protegidas por el guard de autenticación
