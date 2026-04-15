@@ -50,6 +50,30 @@
           placeholder="tu@correo.com" required />
       </div>
 
+      <div class="form-group">
+        <label>Mejor sabor</label>
+        <select [(ngModel)]="userData.bestFlavor" name="bestFlavor" required>
+          <option value="">Selecciona</option>
+          <option *ngFor="let c of competitorOptions" [value]="c">{{ c }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Mejor atención</label>
+        <select [(ngModel)]="userData.bestAtention" name="bestAtention" required>
+          <option value="">Selecciona</option>
+          <option *ngFor="let c of competitorOptions" [value]="c">{{ c }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Mejor empaque</label>
+        <select [(ngModel)]="userData.bestPackaging" name="bestPackaging" required>
+          <option value="">Selecciona</option>
+          <option *ngFor="let c of competitorOptions" [value]="c">{{ c }}</option>
+        </select>
+      </div>
+
       <div class="consent-box">
         <input type="checkbox" id="dc" [(ngModel)]="dataConsent" name="dataConsent" />
         <label for="dc">
