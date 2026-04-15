@@ -17,7 +17,7 @@ export interface Competitor {
   providedIn: 'root'
 })
 export class CompetitorService {
-  private apiUrl = 'http://localhost:3020/api/competitors';
+  private apiUrl = 'https://api.crunchy-munch.com/api/competitors';
 
   constructor(private http: HttpClient) {}
 
