@@ -11,6 +11,10 @@ export interface VoteData {
   telefono: string;
   correo: string;
   selectedOption: number;
+  optionName: string;
+  bestFlavor: string;
+  bestAtention: string;
+  bestPackaging: string;
 }
 
 export interface VoteResponse {
@@ -34,7 +38,7 @@ export interface StatisticsResponse {
   providedIn: 'root'
 })
 export class VoteService {
-  private apiUrl = 'https://api.crunchy-munch.com/api/vote';
+  private apiUrl = 'https://api.crunchy-munch.com/api/vote2026';
 
   constructor(private http: HttpClient) {}
 

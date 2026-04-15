@@ -27,8 +27,21 @@ export class VoteFormComponent implements OnInit {
     municipio: '',
     telefono: '',
     correo: '',
-    selectedOption: 0
+    selectedOption: 0,
+    optionName: '',
+    bestFlavor: '',
+    bestAtention: '',
+    bestPackaging: ''
   };
+
+  readonly competitorOptions = [
+    'Crunchy Munch',
+    'Dolcatto',
+    'Fratelli Repostería',
+    'Koalas Bakery',
+    'Ancookies',
+    'Crunchy Munch 2'
+  ];
 
   readonly municipios = [
     'Abejorral','Alejandría','Bello','Carmen de Viboral','Cocorná',
@@ -65,9 +78,23 @@ export class VoteFormComponent implements OnInit {
   // ── privados ──────────────────────────────────────────
 
   private validateForm(): boolean {
-    const { nombreCompleto, documento, municipio, telefono, correo, edad } = this.userData;
+    const {
+      nombreCompleto,
+      documento,
+      municipio,
+      telefono,
+      correo,
+      edad,
+      bestFlavor,
+      bestAtention,
+      bestPackaging
+    } = this.userData;
+
     if (!nombreCompleto.trim() || !documento.trim() || !municipio.trim() || !telefono.trim() || !correo.trim()) {
       alert('Por favor, completa todos los campos'); return false;
+    }
+    if (!bestFlavor.trim() || !bestAtention.trim() || !bestPackaging.trim()) {
+      alert('Debes seleccionar mejor sabor, mejor atención y mejor empaque'); return false;
     }
     if (!this.dataConsent) {
       alert('Debes aceptar el tratamiento de datos personales'); return false;
@@ -99,13 +126,18 @@ export class VoteFormComponent implements OnInit {
   }
 
   private sendVote(): Promise<void> {
+    const optionName = this.selectedName.trim() || this.competitorOptions[this.selectedOption ?? -1] || '';
     const payload: VoteData = {
       ...this.userData,
       nombreCompleto: this.userData.nombreCompleto.trim(),
       documento:      this.userData.documento.trim(),
       telefono:       this.userData.telefono.trim(),
       correo:         this.userData.correo.trim().toLowerCase(),
-      selectedOption: this.selectedOption!
+      selectedOption: this.selectedOption!,
+      optionName,
+      bestFlavor: this.userData.bestFlavor.trim(),
+      bestAtention: this.userData.bestAtention.trim(),
+      bestPackaging: this.userData.bestPackaging.trim()
     };
     return new Promise((resolve, reject) => {
       this.voteService.createVote(payload).subscribe({
